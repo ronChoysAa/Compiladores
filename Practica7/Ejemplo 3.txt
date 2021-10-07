@@ -1,0 +1,14 @@
+entero vueltas = 0;
+entero numero = 7;
+mientras (numero>1){
+    si(numero%2){
+        numero = numero / 2;
+    }
+    sino{
+        numero = 3 * numero;
+        numero = numero + 1;
+    }
+    vueltas = vueltas + 1;
+}
+
+retornar vueltas;

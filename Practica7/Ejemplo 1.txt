@@ -1,0 +1,6 @@
+si(edad%2){
+    retornar 'I';
+}
+sino{
+    retornar 'P';
+}

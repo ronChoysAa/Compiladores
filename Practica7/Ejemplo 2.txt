@@ -1,0 +1,5 @@
+entero numero1 = 1;
+mientras(numero1 < 4){
+    numero1 = numero1 + 1;
+}
+retornar numero1;
