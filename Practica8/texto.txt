@@ -1,0 +1,43 @@
+tipo_var		-> VACIO | LOGICO | ENTERO | FLOTANTE | CARACTER
+decla_var		-> tipo_var IDENTIFICADOR ; | tipo_var IDENTIFICADOR [ ];
+
+parametros		-> paramet_lista| e
+paramet_lista	-> paramet_lista, parametro | parametro
+parametro 		-> tipo_var IDENTIFICADOR | tipo_var IDENTIFICADOR [ ]
+
+fun_decl		-> tipo_var IDENTIFICADOR ( paramet ) cuerpo
+
+
+sent_condic 	-> SI ( expres ) cuerpo | SI ( expres ) cuerpo  SINO cuerpo 
+
+sent_mientras	-> MIENTRAS ( expres ) cuerpo
+sent_para		-> PARA (paramet, paramet, paramet) HACER cuerpo
+sent_ciclica	-> sent_mientras | sent_para
+
+sent_retorno	-> RETORNAR IDENTIFICADOR; | RETORNAR ;
+
+lista_sent		-> lista_sent sentencias | e
+sentencias		-> sent_expres | sent_retorno | sent_ciclica | sent_condic 
+val_logico		-> VERDADERO | FALSO
+
+declars_local	-> declars_local declar_local | e
+declar_local	-> tipo_var IDENTIFICADOR ; | tipo_var IDENTIFICADOR [ ] ;
+
+cuerpo			-> { declars_local lista_sent}
+
+sig_relacio		-> > | < | <= | >= | == | != | y | o | !
+sig_adic		-> + | -
+sig_mult		-> * | / | %
+
+sent_expres		-> expres ; | ;
+
+argumentos		-> argumen_lista | e
+argumen_lista	-> argumentos , expres | expres
+
+expres			-> IDENTIFICADOR = expres | IDENTIFICADOR [ expres ] = expres
+                -> expres sig_relacio express
+                -> expres sig_adic expres 
+                -> expres sig_mult expres 
+                -> VALORNUMERAL | val_logico | VALORCARACTER 
+                -> ( expres )
+                -> IDENTIFICADOR | IDENTIFICADOR [ expres ] | IDENTIFICADOR ( argumentos )
